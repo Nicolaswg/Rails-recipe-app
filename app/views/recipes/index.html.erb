@@ -1,4 +1,3 @@
-<% flash.each do |name, msg| %> <%= content_tag :div, msg %> <% end %>
 <h1 class='container'>All recipes
   <% if @user==current_user %>
     <button><%= link_to "Add new Recipe", new_user_recipe_path %></button>
