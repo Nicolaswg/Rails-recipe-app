@@ -14,12 +14,12 @@
 
   <div>
     <%= f.label :preparation_time %><br />
-    <%= f.number_field :preparation_time %>
+    <%= f.number_field :preparation_time, :step => "0.01" %>
   </div>
 
   <div>
     <%= f.label :cooking_time %><br />
-    <%= f.number_field :cooking_time %>
+    <%= f.number_field :cooking_time, :step => "0.01" %>
   </div>
 
   <div>
@@ -28,6 +28,6 @@
   </div>
 
   <div>
-    <%= f.submit %>
+    <%= f.submit "Add Recipe" %>
   </div>
 <% end %>
