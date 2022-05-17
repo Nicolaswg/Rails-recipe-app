@@ -12,7 +12,14 @@ class RecipesController < ApplicationController
 
   def create; end
 
-  def destroy; end
+  def destroy
+    recipe = Recipe.find(params[:id])
+    user = User.find(recipe.user_id)
+    recipe.destroy!
+    user.save
+    flash[:success] = 'You have deleted this Recipe successfully!'
+    redirect_to user_recipes_path
+  end
 
   private
 
