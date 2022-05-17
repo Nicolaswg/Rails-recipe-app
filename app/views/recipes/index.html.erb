@@ -4,7 +4,7 @@
   <% end %>
 </h1>
 <div class='recipes container'>
-  <% @recipes.each do |recipe| %>
+  <% @user.recipes.each do |recipe| %>
     <%= render recipe %>
   <%end%>
 </div>
