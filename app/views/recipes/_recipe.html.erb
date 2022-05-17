@@ -1,0 +1,6 @@
+<section class='recipe'>
+  <div>
+    <h2><%= link_to (recipe.name), user_recipe_path(recipe.user_id, recipe.id) %></h2>
+  </div>
+  <p><%=recipe.description%></p>
+</section>
