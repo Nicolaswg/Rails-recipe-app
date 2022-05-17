@@ -1,11 +1,12 @@
 class RecipesController < ApplicationController
   def index
-    @recipes = Recipe.all
+    @user = User.find(params[:user_id])
+    @recipes = @user.recipes.all
   end
 
   def show
     @user = User.find(params[:user_id])
-    @recipe = @user.recipes.find(params[:id])
+    @recipes = @user.recipes.find(params[:id])
   end
 
   def new; end
@@ -14,10 +15,8 @@ class RecipesController < ApplicationController
 
   def destroy
     recipe = Recipe.find(params[:id])
-    user = User.find(recipe.user_id)
     recipe.destroy!
-    user.save
-    flash[:success] = 'You have deleted this Recipe successfully!'
+    flash[:success] = 'Recipe deleted successfully!'
     redirect_to user_recipes_path
   end
 

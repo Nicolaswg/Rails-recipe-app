@@ -1,4 +1,9 @@
-<h1 class='container'>All recipes</h1>
+<% flash.each do |name, msg| %> <%= content_tag :div, msg %> <% end %>
+<h1 class='container'>All recipes
+  <% if @user==current_user %>
+    <button><%= link_to "Add new Recipe", new_user_recipe_path %></button>
+  <% end %>
+</h1>
 <div class='recipes container'>
   <% @recipes.each do |recipe| %>
     <%= render recipe %>
