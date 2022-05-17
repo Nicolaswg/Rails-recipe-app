@@ -1,11 +1,12 @@
 <section class='recipe'>
   <div>
     <h2><%= link_to (recipe.name), user_recipe_path(recipe.user_id, recipe.id) %></h2>
+    
     <% if owner?(recipe) %>
       <div><%= button_to "Remove", user_recipe_path(recipe.user_id, recipe.id),
-      method: :delete,
-                data: { confirm: 'Are you sure?' } %></div>
+      method: :delete %></div>
     </div>
   <% end %>
+
   <p><%=recipe.description%></p>
 </section>

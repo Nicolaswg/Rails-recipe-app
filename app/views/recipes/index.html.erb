@@ -1,8 +1,11 @@
-<h1 class='container'>All recipes
+<header class='container header'>
+  <h1>All recipes</h1>
+  
   <% if @user==current_user %>
     <button><%= link_to "Add new Recipe", new_user_recipe_path %></button>
   <% end %>
-</h1>
+</header>
+
 <div class='recipes container'>
   <% @user.recipes.each do |recipe| %>
     <%= render recipe %>

@@ -18,6 +18,15 @@
   margin: auto;
 }
 
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.header > button {
+  margin-left: 2rem;
+}
+
 .recipes,
 .users {
   display: flex;
