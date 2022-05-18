@@ -11,8 +11,8 @@
 		<%= form.number_field :price%>
 	</div>
 	<div class="text-field flex-row">
-		<%= form.label :unit, "Mesuerment Unit: "%>
-		<%= form.select :unit, ["grams", "units", "pounds", "kilogram"]%>
+		<%= form.label :measurement_unit, "Measurement Unit: "%>
+		<%= form.select :measurement_unit, ["grams", "units", "pounds", "kilogram"]%>
 	</div>
 	<%= form.submit 'submit', class: "submit"%>
 <% end %>
