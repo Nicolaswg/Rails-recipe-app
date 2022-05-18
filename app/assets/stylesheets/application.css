@@ -90,6 +90,7 @@ th {
 .submit {
   width: 100%;
   padding: 10px;
+}
 
 .container {
   width: 70vw;
@@ -118,5 +119,4 @@ th {
   padding: 0.2rem 1rem;
   border: 1px solid black;
   margin-bottom: 0.5rem;
-
 }
