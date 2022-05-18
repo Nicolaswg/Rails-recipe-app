@@ -1,2 +1,33 @@
-<h1>Recipes#new</h1>
-<p>Find me in app/views/recipes/new.html.erb</p>
+<h1>New Recipe</h1>
+
+<%= form_with(scope: :recipes, url: user_recipes_path(@user), method: :post, local: true) do |f| %>
+
+  <div>
+    <%= f.label :name %><br />
+    <%= f.text_field :name%>
+  </div>
+
+  <div>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+
+  <div>
+    <%= f.label :preparation_time %><br />
+    <%= f.number_field :preparation_time, :step => "0.01" %>
+  </div>
+
+  <div>
+    <%= f.label :cooking_time %><br />
+    <%= f.number_field :cooking_time, :step => "0.01" %>
+  </div>
+
+  <div>
+    <%= f.label :public %><br />
+    <%= f.check_box :public %>
+  </div>
+
+  <div>
+    <%= f.submit "Add Recipe" %>
+  </div>
+<% end %>
