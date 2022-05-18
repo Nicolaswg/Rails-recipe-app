@@ -1,0 +1,23 @@
+<div class="index flex-col">
+<h2>ADD NEW FOOD</h2>
+<%= form_with scope: :foods, url: user_foods_path(user), 
+	method: :post, local: true, class: "food-form" do |form|%>
+  <div class="text-field flex-row">
+		<%=form.label :name, "Food name: "%>
+		<%= form.text_field :name%>
+	</div>
+	<div class="text-field flex-row">
+		<%= form.label :price, "Price: "%>
+		<%= form.number_field :price%>
+	</div>
+	<div class="text-field flex-row">
+		<%= form.label :unit, "Mesuerment Unit: "%>
+		<%= form.select :unit, ["grams", "units", "pounds", "kilogram"]%>
+	</div>
+	<%= form.submit 'submit', class: "submit"%>
+<% end %>
+
+<% flash.each do |name, msg| -%>
+  <%= content_tag :div, msg, class: "#{name} generic-alert" %>
+<% end -%>
+</div>
