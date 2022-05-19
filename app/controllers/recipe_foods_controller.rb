@@ -16,8 +16,8 @@ class RecipeFoodsController < ApplicationController
       redirect_to user_recipe_path(id: params[:recipe_id])
       flash[:success] = 'Ingredient was added!'
     else
-      redirect_to new_recipe_recipe_food_path
-      flash[:error] = 'ERROR, Ingredient not added!'
+      redirect_to user_recipe_path(id: params[:recipe_id])
+      flash[:error] = 'ERROR, Ingredient already exist!'
     end
   end
 
