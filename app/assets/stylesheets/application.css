@@ -92,6 +92,8 @@ th {
   padding: 10px;
 }
 
+/* Recipe index */
+
 .container {
   width: 70vw;
   margin: auto;
@@ -119,4 +121,31 @@ th {
   padding: 0.2rem 1rem;
   border: 1px solid black;
   margin-bottom: 0.5rem;
+}
+
+/* Recipe display */
+
+.show-recipe {
+  display: flex;
+  border: 1px solid black;
+  justify-content: space-around;
+}
+
+.title {
+  text-align: center;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 1rem 0.5rem;
+}
+
+.section > ul {
+  padding: 0;
+}
+
+.section > ul > li {
+  list-style-type: none;
 }

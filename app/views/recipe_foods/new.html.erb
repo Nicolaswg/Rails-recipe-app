@@ -1,0 +1,26 @@
+<div>
+  <h2>Add Ingredient!</h2>
+  <div>
+    <table>
+      <tr>
+        <th>Food</th>
+        <th>Measurement Unit</th>
+        <th>Quantity</th>
+        <th>Action</th>
+      </tr>
+  <% @foods.each do |food| %>
+    <%= form_with model: @recipe_food, url: user_recipe_recipe_foods_path do |f| %>
+      <tr>
+        <%= hidden_field_tag 'food_id', food.id %>
+        <td><%= food.name %></td>
+        <td><%= food.measurement_unit %></td>
+        <td><%= f.number_field :quantity %></td>
+        <td><%= f.submit 'Add ingredient' %></td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>
+
+  </div>
+
+</div>
