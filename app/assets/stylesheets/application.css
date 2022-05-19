@@ -269,3 +269,11 @@ th {
 .section > ul > li {
   list-style-type: none;
 }
+
+/* Recipe display */
+
+.flex {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 2rem;
+}
