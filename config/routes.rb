@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 		resources :foods, except: [:edit, :update]
 	end
   resources :shopping_list, only: [:index]
+	resources :public_recipes, only: [:index]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
 end
