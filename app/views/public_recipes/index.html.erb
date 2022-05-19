@@ -1,0 +1,16 @@
+<div class="index flex-col">
+<h1>Public recipes</h1>
+<% @recipe.each do |recipe|%>
+	<div class="recipe flex-row">
+		<div class="recipe-header">
+			<p><%= recipe.name%></p>
+			<p>By: <%= recipe.user.name%></p>
+		</div>
+		<div class="food-header">
+			<p>Total food items:</p>
+			<p>Total price:</p>
+		</div>
+	</div>
+<%end%>
+</div>
+
