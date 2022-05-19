@@ -21,6 +21,8 @@
   --light-gray: #ddd;
   --nav-background: #f0f1f1;
   --links-background: #0d6efd;
+  --delete-button: #bb2d3b;
+  --add-button: #157347;
 }
 
 * {
@@ -182,16 +184,53 @@ th {
   border: 2px solid var(--color-black);
 }
 
-.header {
+.user-name {
+  text-decoration: none;
+  transition: color 800ms ease;
+}
+
+.user-name:hover {
+  color: var(--links-background);
+}
+
+/* RECIPE INDEX */
+
+.recipe-container {
+  background-color: var(--nav-background);
+  padding: 12px;
+  border-radius: 4px;
+  width: 70%;
+}
+
+.header-recipe {
   display: flex;
-  align-items: center;
+  margin: 5px;
+  gap: 10px;
 }
 
-.header > button {
-  margin-left: 2rem;
+.header-recipe button {
+  padding: 10px;
+  background: none;
+  border: 1px solid black;
+  border-radius: 4px;
+  transition: background-color 800ms ease;
 }
 
-.recipes {
+.header-recipe button:hover {
+  background-color: var(--add-button);
+  color: var(--nav-background);
+}
+
+.add-recipe {
+  text-decoration: none;
+  transition: color 800ms ease;
+}
+
+.add-recipe:hover {
+  color: var(--nav-background);
+}
+
+.content-recipe {
   display: flex;
   flex-direction: column;
 }
