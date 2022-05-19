@@ -18,7 +18,10 @@
 			  <li>Private<i class="fa-solid fa-toggle-off"></i> </li>
 			<% end %>
 		</ul>
-		<button><%= link_to 'Add Ingredient!', new_user_recipe_recipe_food_path(user_id: @recipe.user_id, recipe_id: @recipe.id) %></button>
+		<% if @recipe.user == @current_user%>
+		<button>
+		<%= link_to 'Add Ingredient!', new_user_recipe_recipe_food_path(user_id: @recipe.user_id, recipe_id: @recipe.id) %></button>
+		<% end %>
 	</div>
 	</section>
 
