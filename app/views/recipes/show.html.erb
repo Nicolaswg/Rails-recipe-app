@@ -1,23 +1,26 @@
 <h1 class='title'><%= @recipe.name %></h1>
 <div class='show-recipe container'>
+
   <section class='section'>
-  <ul>
-    <li>Preparation time: <%= @recipe.preparation_time %> hours</li>
-    <li>Cooking time: <%= @recipe.cooking_time %> hours</li>
-    <li><%= @recipe.description %></li>
-  </ul>
-  <button>Genrate shopping list</button>
-</section>
-<section class='section'>
-  <ul>
-    <li>Public <%= @recipe.public %></li>
-  </ul>
-	<%= link_to 'Add Ingredient!', new_user_recipe_recipe_food_path(user_id: @recipe.user_id, recipe_id: @recipe.id) %>
-</div>
+		<ul>
+			<li>Preparation time: <%= @recipe.preparation_time %> hours</li>
+			<li>Cooking time: <%= @recipe.cooking_time %> hours</li>
+			<li><%= @recipe.description %></li>
+		</ul>
+		<button><%= link_to 'Genrate shopping list', shopping_list_index_path(recipe_id: @recipe.id) %></button>
+  </section>
+
+	<section class='section'>
+		<ul>
+			<li>Public <%= @recipe.public %></li>
+		</ul>
+		<button><%= link_to 'Add Ingredient!', new_user_recipe_recipe_food_path(user_id: @recipe.user_id, recipe_id: @recipe.id) %></button>
+	</div>
+	</section>
 
 <hr class='container'>
 
-<table>
+<table class='container'>
 	<tr>
 		<th>Food</th>
 		<th>Quantity</th>
