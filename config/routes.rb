@@ -10,10 +10,12 @@ Rails.application.routes.draw do
 
 	#Resources routes
 	resources :users, only: [:index] do
-		resources :recipes, except: [:edit, :update] 
+		resources :recipes, except: [:edit, :update] do
+			resources :recipe_foods, only: [:create, :new, :destroy]
+		end
 		resources :foods, except: [:edit, :update]
-		resources :recipe_foods, only: [:index]
 	end
+	resources :public_recipes, only: [:index]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
 end
