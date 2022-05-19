@@ -12,7 +12,11 @@
 
 	<section class='section'>
 		<ul>
-			<li>Public <%= @recipe.public %></li>
+			<% if @recipe.public == true %>
+			  <li>Public<i class="fa-solid fa-toggle-on"></i> </li>
+			<% else %>
+			  <li>Private<i class="fa-solid fa-toggle-off"></i> </li>
+			<% end %>
 		</ul>
 		<button><%= link_to 'Add Ingredient!', new_user_recipe_recipe_food_path(user_id: @recipe.user_id, recipe_id: @recipe.id) %></button>
 	</div>
