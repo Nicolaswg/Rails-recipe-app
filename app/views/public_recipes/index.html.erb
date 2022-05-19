@@ -7,8 +7,8 @@
 			<p>By: <%= recipe.user.name%></p>
 		</div>
 		<div class="food-header">
-			<p>Total food items:</p>
-			<p>Total price:</p>
+			<p>Total food items: <%= recipe.amount_of_food %></p>
+			<p>Total price: <%= recipe.total%>$</p>
 		</div>
 	</div>
 <%end%>
