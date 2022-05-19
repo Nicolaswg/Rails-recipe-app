@@ -1,2 +1,41 @@
-<h1>Recipes#show</h1>
-<p>Find me in app/views/recipes/show.html.erb</p>
+<h1 class='title'><%= @recipe.name %></h1>
+<div class='show-recipe container'>
+  <section class='section'>
+  <ul>
+    <li>Preparation time: <%= @recipe.preparation_time %> hours</li>
+    <li>Cooking time: <%= @recipe.cooking_time %> hours</li>
+    <li><%= @recipe.description %></li>
+  </ul>
+  <button>Genrate shopping list</button>
+</section>
+<section class='section'>
+  <ul>
+    <li>Public <%= @recipe.public %></li>
+  </ul>
+	<%= link_to 'Add Ingredient!', new_user_recipe_recipe_food_path(user_id: @recipe.user_id, recipe_id: @recipe.id) %>
+</div>
+
+<hr class='container'>
+
+<table>
+	<tr>
+		<th>Food</th>
+		<th>Quantity</th>
+		<th>Value</th>
+		<th>Actions</th>
+	</tr>
+	<% @recipe.recipe_foods.each do |recipe_food| %>
+	<tr>
+		<td><%= recipe_food.food.name %></td>
+		<td><%= recipe_food.quantity %></td>
+		<td><%= recipe_food.food.price %></td>
+		<td><% if recipe_food.recipe.user == @current_user%>
+					<button>Modify</button>
+					<%= button_to 'Delete', user_recipe_recipe_food_path(id: recipe_food.id, recipe_id: recipe_food.recipe_id), method: :delete %>
+  			<% end %>
+  	</td>
+	</tr>
+	<% end %>
+</table>
+
+</section>
