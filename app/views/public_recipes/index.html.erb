@@ -3,7 +3,7 @@
 <% @recipe.each do |recipe|%>
 	<div class="recipe flex-row">
 		<div class="recipe-header">
-			<p><%= recipe.name%></p>
+			<p><%= link_to recipe.name, user_recipe_path(recipe.user.id, recipe.id)%></p>
 			<p>By: <%= recipe.user.name%></p>
 		</div>
 		<div class="food-header">
