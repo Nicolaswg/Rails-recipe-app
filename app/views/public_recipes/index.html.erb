@@ -2,11 +2,11 @@
 <h1>Public recipes</h1>
 <% @recipe.each do |recipe|%>
 	<div class="recipe flex-row">
-		<div class="recipe-header">
-			<p><%= link_to recipe.name, user_recipe_path(recipe.user.id, recipe.id)%></p>
-			<p>By: <%= recipe.user.name%></p>
+		<div class="recipe-header flex-col">
+			<p><%= link_to recipe.name, user_recipe_path(recipe.user.id, recipe.id), class: 'public-link'%></p>
+			<strong><p>By: <%= recipe.user.name%></p></strong>
 		</div>
-		<div class="food-header">
+		<div class="recipe-amount flex-col">
 			<p>Total food items: <%= recipe.amount_of_food %></p>
 			<p>Total price: <%= recipe.total%>$</p>
 		</div>

@@ -9,7 +9,7 @@
 <body>
   <div class="index flex-col">
 		<%= link_to "Add food", {controller: 'foods', action: 'new'}, class: 'btn-add' if @user.id == current_user.id%>
-		<table class="food-container">
+		<table class="table-container">
 			<tr>
 				<th>Food</th>
 				<th>Measurement Unit</th>

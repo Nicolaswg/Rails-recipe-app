@@ -1,50 +1,45 @@
-<h1 class='title'><%= @recipe.name %></h1>
-<div class='show-recipe container'>
-
-  <section class='section'>
-		<ul>
-			<li>Preparation time: <%= @recipe.preparation_time %> hours</li>
-			<li>Cooking time: <%= @recipe.cooking_time %> hours</li>
-			<li><%= @recipe.description %></li>
-		</ul>
-		<button><%= link_to 'Genrate shopping list', shopping_list_index_path(recipe_id: @recipe.id) %></button>
-  </section>
-
-	<section class='section'>
-		<ul>
-			<% if @recipe.public == true %>
-			  <li>Public<i class="fa-solid fa-toggle-on"></i> </li>
-			<% else %>
-			  <li>Private<i class="fa-solid fa-toggle-off"></i> </li>
-			<% end %>
-		</ul>
-		<% if @recipe.user == @current_user%>
+<div class="index flex-col">
+	<h1 class='title'><%= @recipe.name %></h1>
+	<div class='show-recipe'>
+  	<section class='section-a'>
+			<ul>
+				<li>Preparation time: <%= @recipe.preparation_time %> hours</li>
+				<li>Cooking time: <%= @recipe.cooking_time %> hours</li>
+				<li><%= @recipe.description %></li>
+			</ul>
+			<button class="shop-list"><%= link_to 'Genrate shopping list', shopping_list_index_path(recipe_id: @recipe.id), class: "shop-link" %></button>
+  	</section>
+		<section class='section-b'>
+			<ul>
+				<% if @recipe.public == true %>
+			  	<li class="public">Public</li>
+				<% else %>
+			  	<li class="private">Private</li>
+				<% end %>
+			<% if @recipe.user == @current_user%>
+			</ul>
 		<button>
 		<%= link_to 'Add Ingredient!', new_user_recipe_recipe_food_path(user_id: @recipe.user_id, recipe_id: @recipe.id) %></button>
 		<% end %>
+		</section>
 	</div>
-	</section>
-
-<hr class='container'>
-
-<table class='container'>
-	<tr>
-		<th>Food</th>
-		<th>Quantity</th>
-		<th>Value</th>
-		<th>Actions</th>
-	</tr>
-	<% @recipe.recipe_foods.each do |recipe_food| %>
-	<tr>
-		<td><%= recipe_food.food.name %></td>
-		<td><p><%= recipe_food.quantity %> <%=recipe_food.food.measurement_unit%></p></td>
-		<td><%= recipe_food.food.price %></td>
-		<td><% if recipe_food.recipe.user == @current_user%>
-					<%= button_to 'Delete', user_recipe_recipe_food_path(id: recipe_food.id, recipe_id: recipe_food.recipe_id), method: :delete %>
-  			<% end %>
-  	</td>
-	</tr>
-	<% end %>
-</table>
-
-</section>
+	<table class="table-container">
+		<tr>
+			<th>Food</th>
+			<th>Quantity</th>
+			<th>Value</th>
+			<th>Actions</th>
+		</tr>
+		<% @recipe.recipe_foods.each do |recipe_food| %>
+		<tr>
+			<td><%= recipe_food.food.name %></td>
+			<td><p><%= recipe_food.quantity %> <%=recipe_food.food.measurement_unit%></p></td>
+			<td><%= recipe_food.food.price %></td>
+			<td><% if recipe_food.recipe.user == @current_user%>
+						<%= button_to 'Delete', user_recipe_recipe_food_path(id: recipe_food.id, recipe_id: recipe_food.recipe_id), method: :delete %>
+  				<% end %>
+  		</td>
+		</tr>
+		<% end %>
+	</table>
+</div>
