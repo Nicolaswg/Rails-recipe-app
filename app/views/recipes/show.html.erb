@@ -18,8 +18,9 @@
 				<% end %>
 			<% if @recipe.user == @current_user%>
 			</ul>
-		<button>
-		<%= link_to 'Add Ingredient!', new_user_recipe_recipe_food_path(user_id: @recipe.user_id, recipe_id: @recipe.id) %></button>
+		<button class="shop-list">
+		<%= link_to 'Add Ingredient!', new_user_recipe_recipe_food_path(user_id: @recipe.user_id, recipe_id: @recipe.id) %>
+		</button>
 		<% end %>
 		</section>
 	</div>
