@@ -1,0 +1,12 @@
+<div class='recipe-b'>
+  <div>
+    <h2><%= link_to (recipe.name), user_recipe_path(recipe.user_id, recipe.id), class: "recipe-item"%></h2>
+    
+    <% if owner?(recipe) %>
+      <div><%= button_to "Remove", user_recipe_path(recipe.user_id, recipe.id),
+      method: :delete %></div>
+  	<% end %>
+    </div>
+
+  <p><%=recipe.description%></p>
+</div>

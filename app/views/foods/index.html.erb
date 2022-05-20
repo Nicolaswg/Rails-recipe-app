@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rails Recipe App</title>
+</head>
+<body>
+  <div class="index flex-col">
+		<%= link_to "Add food", {controller: 'foods', action: 'new'}, class: 'btn-add' if @user.id == current_user.id%>
+		<table class="table-container">
+			<tr>
+				<th>Food</th>
+				<th>Measurement Unit</th>
+				<th>Unit price</th>
+				<th>Action</th>
+			</tr>
+			
+			<%@user.foods.each do |food|%>
+			<tr>
+				<td><%=food.name%></td>
+				<td><%=food.measurement_unit%></td>
+				<td><%=food.price%>$</td>
+				<td>
+				<%= button_to "Delete", user_food_path(food.user_id, food.id), method: :delete if @user.id == current_user.id%>
+				</td>
+			</tr>
+			<%end%>
+		</table>
+	<% flash.each do |name, msg| -%>
+  	<%= content_tag :div, msg, class: "#{name} generic-alert" %>
+  <% end -%>
+  </div>
+</body>
+</html>

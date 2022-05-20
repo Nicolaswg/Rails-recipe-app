@@ -1,0 +1,12 @@
+<div class="user-container">
+	<div class="users">
+		<h2>Users</h2>
+  		<% @users.each do |user| %>
+				<div class='user'>
+    			<%= render user %>
+				</div>
+  		<%end%>
+	</div>
+</div>
+
+
