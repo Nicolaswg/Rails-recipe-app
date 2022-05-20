@@ -29,7 +29,7 @@ gem 'stimulus-rails'
 gem 'jbuilder'
 
 # ffi gem
-gem 'ffi', github: 'ffi/ffi', submodules: true
+# gem 'ffi', github: 'ffi/ffi', submodules: true
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
